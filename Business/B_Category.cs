@@ -9,6 +9,16 @@ namespace Business
 {
     public class B_Category
     {
+        public static CategoryEntity CategoryById(string categoryId)
+        {
+
+            using (var db = new InventaryContext())
+            {
+
+            return db.Categories.ToList().FirstOrDefault(cate => cate.CategoryId == categoryId);
+            }
+        }
+
         public static List<CategoryEntity> CategoryList()
         {
             using (var db = new InventaryContext())
